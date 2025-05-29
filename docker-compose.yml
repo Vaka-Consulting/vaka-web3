@@ -1,0 +1,51 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    ports:
+      - "9001:9001"
+    volumes:
+      - ./api/src:/app/api/src:ro
+    depends_on:
+      - db
+
+  app:
+    
+    build:      
+      context: app
+      dockerfile: Dockerfile
+    
+    volumes:
+      - ./app/src:/app/src:ro
+      - ./app/next.config.mjs:/app/next.config.mjs:ro
+      - ./app/tsconfig.json:/app/tsconfig.json:ro
+      - ./app/package.json:/app/package.json:ro
+    
+    ports:
+      - "3001:3000"
+    
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_WEB3_AUTH_ENDPOINT=http://localhost:9001/
+    
+    env_file:
+      - ./.env
+
+    # command: 
+    #   - 'sleep 500000'
+    
+    depends_on:
+      - api
+
+  db:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

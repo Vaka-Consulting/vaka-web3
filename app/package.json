@@ -1,0 +1,51 @@
+{
+  "name": "web3-app",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Narayan Maharjan <narayan@vaka.consulting>",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.13.0",
+    "next": "14.2.11",
+    "react": "^18",
+    "react-dom": "^18",
+    "@vakaconsulting/config": "^0.0.15",
+    "@vakaconsulting/common": "^0.0.15",
+    "@vakaconsulting/react": "^0.0.15",
+    "@vakaconsulting/web3-auth": "^0.0.15"
+  },
+  "devDependencies": {
+    "@meshsdk/core": "^1.7.6",
+    "@meshsdk/core-cst": "^1.7.6",
+    "@meshsdk/react": "^1.7.6",
+    "@mui/material-nextjs": "^6.1.0",
+    "@mui/icons-material": "^6.1.0",
+    "@mui/material": "^6.1.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",    
+    "eslint": "^8",
+    "eslint-config-next": "14.2.11",
+    "typescript": "^5",
+
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@hookform/resolvers": "^3.9.0",
+    "@mui/lab": "^5.0.0-alpha.173",
+    "js-cookie": "^3.0.1",
+    "mui-one-time-password-input": "^2.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.52.2",
+    "react-use-wizard": "^2.3.0",
+    "yup": "^1.4.0"
+  }
+}
