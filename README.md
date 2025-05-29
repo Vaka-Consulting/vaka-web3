@@ -10,6 +10,7 @@ This project is a full-stack web3 authentication platform built with [Next.js](h
 ├── app/        # Next.js frontend application
 ├── docker-compose.yml
 ├── README.md
+├── sample.env
 ```
 
 ### `api/` - GraphQL API Server ⚡
