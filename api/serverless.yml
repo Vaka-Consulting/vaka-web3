@@ -1,11 +1,11 @@
-service: onboarding-api
+service: vaka-web3-api
 
 
 custom:
 
   domain:
-    dev: onboarding-api.dev.vakaconsulting.io
-    prod: onboarding-api.dev.vakaconsulting.io
+    dev: vaka-web3-api.dev.vakaconsulting.io
+    prod: vaka-web3-api.vakaconsulting.io
   
   customDomain:
     apiType: http
