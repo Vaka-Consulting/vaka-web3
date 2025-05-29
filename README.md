@@ -114,8 +114,39 @@ You can develop locally using either Docker Compose (recommended for most users)
 
 ## Deployment 🚢
 
-- The API is configured for AWS Lambda deployment using Serverless Framework.
-- See [`api/serverless.yml`](api/serverless.yml) for configuration and deployment commands.
+### API Deployment (AWS Lambda with Serverless Framework)
+
+The API is configured for deployment to AWS Lambda using the Serverless Framework. Follow these steps to deploy:
+
+1. **Install Serverless Framework globally (if not already installed):**
+   ```sh
+   npm install -g serverless
+   ```
+
+2. **Configure your AWS credentials:**
+   - Ensure you have an AWS account and credentials set up (see [AWS CLI configuration guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)).
+
+3. **Prepare environment variables:**
+   - Make sure your `api/.env` file is configured with production-ready values.
+
+4. **Deploy the API:**
+   ```sh
+   cd api
+   serverless deploy
+   ```
+
+   This will deploy the API to AWS Lambda as defined in [`api/serverless.yml`](api/serverless.yml).
+
+5. **Update environment variables (if needed):**
+   - You can update Lambda environment variables via the AWS Console or by updating your `.env` and redeploying.
+
+6. **Remove the deployment (optional):**
+   ```sh
+   serverless remove
+   ```
+   This will remove all deployed resources from AWS.
+
+For more details, see the comments and configuration in [`api/serverless.yml`](api/serverless.yml).
 
 ## Features ✨
 
