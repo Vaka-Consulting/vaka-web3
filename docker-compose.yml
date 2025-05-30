@@ -4,8 +4,6 @@ services:
     build:
       context: ./vaka-js
       dockerfile: Dockerfile
-    env_file:
-      - .env
     entrypoint:
       - sh
       - -c
@@ -14,10 +12,7 @@ services:
         yarn workspace @vakaconsulting/react run watch & \
         yarn workspace @vakaconsulting/web3-auth run watch 
     volumes:
-      # - ./vaka-js/packages/common:/app/packages/common:ro
-      # - ./vaka-js/packages/react:/app/packages/react:ro
-      # - ./vaka-js/packages/web3-auth:/app/packages/web3-auth:ro
-      - ./vaka-js/packages:/app/packages:ro
+      - ./vaka-js/packages:/app/packages
 
   api:
     build:
@@ -43,7 +38,7 @@ services:
       - ./app/tsconfig.json:/app/tsconfig.json:ro
       - ./app/package.json:/app/package.json:ro
       - ./app/nodemon.json:/app/nodemon.json:ro
-      - ./vaka-js/packages/common/dist:/app/node_modules/@vakaconsulting/common/dist
+      - ./vaka-js/packages/common/dist:/app/node_modules/@vakaconsulting/common/dist:ro
       - ./vaka-js/packages/config/dist:/app/node_modules/@vakaconsulting/config/dist:ro
       - ./vaka-js/packages/react/dist:/app/node_modules/@vakaconsulting/react/dist:ro
       - ./vaka-js/packages/web3-auth/dist:/app/node_modules/@vakaconsulting/web3-auth/dist:ro
