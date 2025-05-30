@@ -5,6 +5,7 @@
   "author": "Narayan Maharjan <narayan@vaka.consulting>",
   "scripts": {
     "dev": "next dev",
+    "dev:live": "nodemon",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -46,6 +47,7 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.2",
     "react-use-wizard": "^2.3.0",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "nodemon": "3.1.10"
   }
 }
