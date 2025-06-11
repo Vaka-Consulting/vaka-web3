@@ -25,6 +25,8 @@ const mutations = [
     "register(email: String, survey_items: String, stake_address: String, signature: String, key: String): GenericStatus!",
   LOGIN_METHODS.REGISTER && "verify_code(code: String!): Session!",
   LOGIN_METHODS.USER && "verify_otp(email: String!, otp: String!): Session!",
+  LOGIN_METHODS.REGISTER &&
+    "resend_verification_link(email: String!): GenericStatus!",
 ]
   .filter(Boolean)
   .join("\n");

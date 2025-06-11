@@ -262,6 +262,32 @@ export const verify_code = async (
   return getUserSession(user);
 };
 
+export const resend_verification_link = async (
+  parent: any,
+  args: any,
+  contextValue: any,
+  info: any
+) => {
+  const { fork, userRepository } = getUserRepository(contextValue);
+  let user = await userRepository.findOne({ email: args.email });
+  if (user == null) {
+    throw new GraphQLError(`User ${args.email} not found`);
+  }
+
+  if (user.verified) {
+    throw new GraphQLError(`User ${args.email} is already verified`);
+  }
+  try {
+    user = await emailService.sendRegistrationLink(user);
+    userRepository.upsert(user);
+    fork.flush();
+    return { status: "SUCCESS" };
+  } catch (e) {
+    console.error(e);
+    throw new GraphQLError("Error while sending an email ");
+  }
+};
+
 export const request_code = async (
   parent: any,
   args: any,
@@ -334,4 +360,5 @@ export const mutations = {
   ...(LOGIN_METHODS.USER ? { verify_otp } : {}),
   ...(LOGIN_METHODS.REGISTER ? { register } : {}),
   ...(LOGIN_METHODS.REGISTER ? { verify_code } : {}),
+  ...(LOGIN_METHODS.REGISTER ? { resend_verification_link } : {}),
 };
