@@ -1,7 +1,0 @@
-{
-  "watch": ["node_modules"],
-  "ext": "js,json",
-  "ignore":  "node_modules/!(@vakaconsulting)/**/*",
-  "ignoreRoot": [],
-  "exec": "npm run dev"
-}

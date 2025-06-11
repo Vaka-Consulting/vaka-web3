@@ -33,11 +33,23 @@ services:
       dockerfile: Dockerfile
     
     volumes:
-      - ./app/src:/app/src:ro
-      - ./app/next.config.mjs:/app/next.config.mjs:ro
+      - ./app/components:/app/components:ro
+      - ./app/constants:/app/constants:ro
+      - ./app/contexts:/app/contexts:ro
+      - ./app/hooks:/app/hooks:ro
+      - ./app/lib:/app/lib:ro
+      - ./app/pages:/app/pages:ro
+      - ./app/providers:/app/providers:ro
+      - ./app/public:/app/public:ro
+      - ./app/styles:/app/styles:ro      
+      - ./app/types:/app/types:ro
+      - ./app/postcss.config.mjs:/app/postcss.config.mjs:ro
+      - ./app/eslint.config.mjs:/app/eslint.config.mjs:ro
+      - ./app/next.config.ts:/app/next.config.ts:ro
+      - ./app/components.json:/app/components.json:ro
+      - ./app/tsconfig.json:/app/tsconfig.json:ro
       - ./app/tsconfig.json:/app/tsconfig.json:ro
       - ./app/package.json:/app/package.json:ro
-      - ./app/nodemon.json:/app/nodemon.json:ro
       - ./vaka-js/packages/common/dist:/app/node_modules/@vakaconsulting/common/dist:ro
       - ./vaka-js/packages/config/dist:/app/node_modules/@vakaconsulting/config/dist:ro
       - ./vaka-js/packages/react/dist:/app/node_modules/@vakaconsulting/react/dist:ro
@@ -54,7 +66,7 @@ services:
       - .env
     
     command:
-      - 'npm run dev:live'
+      - 'npm run dev'
     # command: 
     #   - 'npm install && sleep 500000'
     
